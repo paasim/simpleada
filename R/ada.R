@@ -10,8 +10,7 @@ get_dataset_ids <- function() {
   req <- GET("https://www.avoindata.fi/data/api/3/action/package_list")
   handle_error(req)
 
-  req$content %>%
-    rawToChar() %>%
+  content(req, "text", "application/json", "UTF-8") %>%
     fromJSON() %>%
     pluck("result") %>%
     tibble() %>%
@@ -43,8 +42,7 @@ get_dataset_info <- function(id) {
     GET()
   handle_error(req)
 
-  res <- req$content %>%
-    rawToChar() %>%
+  res <- content(req, "text", "application/json", "UTF-8") %>%
     fromJSON() %>%
     pluck("result")
 

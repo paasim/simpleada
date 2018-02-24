@@ -6,7 +6,7 @@
 #' @name simpleada
 #'
 #' @importFrom dplyr mutate_all
-#' @importFrom httr GET http_error
+#' @importFrom httr content GET http_error
 #' @importFrom jsonlite fromJSON
 #' @importFrom magrittr "%>%"
 #' @importFrom purrr pluck set_names

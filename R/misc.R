@@ -4,5 +4,5 @@
 }
 
 handle_error <- function(req) {
-  if (http_error(req)) req$content %>% rawToChar() %>% stop()
+  if (http_error(req)) content(req, "text", "application/json", "UTF-8") %>% stop()
 }
