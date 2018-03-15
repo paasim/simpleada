@@ -4,10 +4,13 @@
 \alias{get_dataset_info}
 \title{Get dataset info with ID}
 \usage{
-get_dataset_info(id)
+get_dataset_info(id, url_encode = TRUE)
 }
 \arguments{
 \item{id}{The ID of the data.}
+
+\item{url_encode}{If \code{TRUE}, tries to transform the url to a vailid
+one using \link{URLencode}.}
 }
 \value{
 A list with the following fields:

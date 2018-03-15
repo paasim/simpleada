@@ -5,11 +5,12 @@
 #' @docType package
 #' @name simpleada
 #'
-#' @importFrom dplyr mutate_all
+#' @importFrom dplyr mutate mutate_all
 #' @importFrom httr content GET http_error
 #' @importFrom jsonlite fromJSON
 #' @importFrom magrittr "%>%"
-#' @importFrom purrr pluck set_names
+#' @importFrom purrr map_chr pluck set_names
 #' @importFrom stringr str_c
 #' @importFrom tibble as_tibble tibble
+#' @importFrom utils URLencode
 NULL

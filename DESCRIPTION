@@ -1,7 +1,7 @@
 Package: simpleada
 Type: Package
 Title: An R package for the avoindata.fi API
-Version: 0.1.1
+Version: 0.2.0
 Author: Markus Paasiniemi [aut]
 Maintainer: Markus Paasiniemi <paasim@iki.fi>
 Description:

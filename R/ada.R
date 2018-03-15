@@ -22,6 +22,8 @@ get_dataset_ids <- function() {
 #' Download information related to the data.
 #'
 #' @param id The ID of the data.
+#' @param url_encode If \code{TRUE}, tries to transform the url to a vailid
+#'  one using \link{URLencode}.
 #'
 #' @return A list with the following fields:
 #' \describe{
@@ -36,7 +38,7 @@ get_dataset_ids <- function() {
 #'
 #' @export
 #'
-get_dataset_info <- function(id) {
+get_dataset_info <- function(id, url_encode = TRUE) {
   req <- "https://www.avoindata.fi/data/api/3/action/package_show?id=" %>%
     str_c(id) %>%
     GET()
@@ -46,12 +48,13 @@ get_dataset_info <- function(id) {
     fromJSON() %>%
     pluck("result")
 
-  datasets <- if(length(res$resources) > 0) {
-    res$resources[c("name", "format", "url")] %>%
+  if(length(res$resources) > 0) {
+    datasets <- res$resources[c("name", "format", "url")] %>%
       as_tibble() %>%
       mutate_all(as.character)
+    if (url_encode) datasets <- mutate(datasets, url = map_chr(url, URLencode))
   } else {
-    NULL
+    datasets <- NULL
   }
 
   list(organization = res$organization$title,
