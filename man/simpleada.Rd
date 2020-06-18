@@ -3,7 +3,6 @@
 \docType{package}
 \name{simpleada}
 \alias{simpleada}
-\alias{simpleada-package}
 \title{SIMPLEADA}
 \description{
 An R package for the avoindata.fi API
